@@ -233,6 +233,23 @@ export default class ToDoModel {
         this.view.clearDeletionPopup();
     }
 
+    setListInput(listId) {
+        let list = document.getElementById("todo-list-" + listId);
+        let value = list.textContent;
+        this.view.setListInput(listId, list, value);
+    }
+
+    setList(id, value) {
+        let indexOfList = -1;
+        for (let i = 0; (i < this.toDoLists.length) && (indexOfList < 0); i++) {
+            if (this.toDoLists[i].id === id) {
+                indexOfList = i;
+            }
+        }
+        this.toDoLists[indexOfList].setName(value);
+        this.view.setList(id, value);
+    }
+
     setTaskInput(index) {
         let item = this.currentList.items[index];
         let value = item.getDescription();

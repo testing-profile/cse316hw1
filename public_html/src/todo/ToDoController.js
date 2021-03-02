@@ -33,16 +33,39 @@ export default class ToDoController {
     }
     
     // PROVIDES THE RESPONSE TO WHEN A USER CLICKS ON A LIST TO LOAD
-    handleLoadList(listId) {
+    setList(list, listId) {
+        let appModel = this.model
         // UNLOAD THE CURRENT LIST AND INSTEAD LOAD THE CURRENT LIST
-        if (this.model.currentList !== null) {
-            if (listId !== this.model.currentList.getId()) {
-                this.model.loadList(listId);
+        var clicks = 0;
+        let timeout = 200;
+        list.onclick = function() {
+            clicks++;
+            if (clicks == 1) {
+                setTimeout(function(){
+                if(clicks == 1) {
+                    if (appModel.currentList !== null) {
+                        if (listId !== appModel.currentList.getId()) {
+                            appModel.loadList(listId);
+                        }
+                    } else if (appModel.currentList === null) {
+                        appModel.loadList(listId);
+                    }
+                    appModel.disableAddList();
+                } else {
+                    appModel.setListInput(listId);
+                }
+                clicks = 0;
+                }, timeout);
             }
-        } else if (this.model.currentList === null) {
-            this.model.loadList(listId);
         }
-        this.model.disableAddList();
+    }
+
+    setListInput(list, value, id) {
+        let appModel = this.model;
+        list.onblur = function() {
+            let value = document.getElementById("todo-list-" + id).firstChild.value;
+            appModel.setList(id, value);
+        }
     }
 
     enableAddList() {

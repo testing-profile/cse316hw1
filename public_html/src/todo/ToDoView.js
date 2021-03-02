@@ -30,10 +30,7 @@ export default class ToDoView {
             listElement.style.backgroundColor = color;
         }
         // SETUP THE HANDLER FOR WHEN SOMEONE MOUSE CLICKS ON OUR LIST
-        let thisController = this.controller;
-        listElement.onmouseup = function() {
-            thisController.handleLoadList(newList.id);
-        }
+        this.controller.setList(listElement, newList.id);
     }
 
     // REMOVES ALL THE LISTS FROM THE LEFT SIDEBAR
@@ -129,6 +126,30 @@ export default class ToDoView {
     clearDeletionPopup() {
         let popup = document.getElementById("confirm-delete-container");
         popup.setAttribute("id","confirm-delete-container-hidden");
+    }
+
+    setListInput(id, list, value) {
+        let item = list.cloneNode(true);
+        list.replaceWith(item);
+        let newItem = document.createElement("input");
+        newItem.setAttribute("value",value);
+        newItem.style.width = "100%";
+        newItem.style.width = "fit-content";
+        let child = item.firstChild;
+        item.replaceChild(newItem,child);
+        newItem.focus();
+        newItem.select();
+        this.controller.setListInput(newItem, value, id);
+    }
+
+    setList(id, value) {
+        let list = document.getElementById("todo-list-" + id);
+        let item = list.cloneNode(true);
+        list.replaceWith(item);
+        let text = document.createTextNode(value);
+        let child = item.firstChild;
+        child.replaceWith(text);
+        this.controller.setList(item, id);
     }
 
     setTaskInput(id, value, index) {
