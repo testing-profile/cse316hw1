@@ -1,0 +1,196 @@
+:root {
+    /* 
+        FIRST WE'LL DEFINE OUR SWATCHES, i.e. THE COMPLEMENTARY
+        COLORS THAT WE'LL USE TOGETHER IN MULTIPLE PLACES THAT
+        TOGETHER WILL MAKE UP A GIVEN THEME
+    */
+    --swatch-foundation:    #d9d6cc; /* USED FOR BODY BACKGROUND */
+    --swatch-primary:       #40454e; /* DOMINANT COLOR, USED FOR MOST BACKGROUNDS */
+    --swatch-complement:    #353a44; /* USED IN CONTRAST BACKGROUND FOR TOOLBARS */
+    --swatch-contrast:      #111111; /* USED IN MOUSE-OVER SELECTION OF LARGE ELEMENTS */
+    --swatch-accent:        #ffc819; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */  
+
+    --swatch-text:          #e9edf0; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */ 
+    --swatch-text-accent:   #ffc819; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */  
+
+    --font-primary:         'Consolas';
+}
+
+#grid-container {
+    background-color: var(--swatch-foundation);
+    font-family: var(--font-primary);
+}
+
+.grid-item {
+    background-color: var(--swatch-primary);
+}
+
+#navbar {
+    box-shadow: 2px 2px 2px var(--swatch-primary); 
+}
+
+#left-sidebar {
+    background-color: var(--swatch-complement);
+    color: rgb(233,237,240);
+    box-shadow: 2px 2px 2px var(--swatch-primary);
+}
+
+#workspace {
+    background-color: var(--swatch-primary);
+    color: rgb(233,237,240);
+    box-shadow: 2px 2px 2px var(--swatch-primary);
+}
+
+#title-div {
+    color: rgb(255,200,25);
+    font-weight: bold;
+    font-size: 24px;
+    text-indent: 20px;
+}
+
+#left-sidebar-header {
+    border-bottom: dotted;
+    font-size: 19px;
+}
+
+#todo-list-table-header {
+    border-bottom: dotted;
+}
+
+#confirm-delete-container {
+    font-family: var(--font-primary);
+    background: rgba(0, 0, 0, .5);
+}
+
+#confirm-delete-popup {
+    background-color: var(--swatch-complement);
+    color: rgb(233,237,240);
+}
+
+#confirm-cancel {
+    width: 100%;
+}
+
+#confirm-button {
+    color: indianred;
+    width: 40%;
+    text-align: center;
+}
+
+#cancel-button {
+    width: 40%;
+    text-align: center;
+
+}
+
+#confirm-button:hover {
+    background-color: var(--swatch-contrast);
+}
+
+#cancel-button:hover {
+    background-color: var(--swatch-contrast);
+}
+
+#todo_button:hover {
+    background-color: var(--swatch-contrast);
+}
+
+#todo-list-header-card {
+    border-bottom: dotted;
+    font-size: 19px;
+}
+
+.list-item-card {
+    border-bottom: solid;
+    font-size: 16px;
+}
+
+.todo_button {
+    cursor:pointer;
+    background-color: var(--swatch-complement);
+}
+
+.todo_button:hover {
+    background-color: var(--swatch-contrast);
+}
+
+#todo-lists-list::-webkit-scrollbar{
+    width: 2mm;
+    background-color: #2b2e36;
+}
+
+#todo-lists-list::-webkit-scrollbar-thumb{
+    background-color:#7e8084;
+}
+
+#todo-list-items-div::-webkit-scrollbar{
+    width: 2mm;
+    background-color: #2b2e36;
+}
+
+#todo-list-items-div::-webkit-scrollbar-thumb{
+    background-color:#7e8084;
+}
+
+.todo-list {
+    text-align: center;
+    min-height: 50px;
+}
+
+.task-col {
+    background-color: var(--swatch-primary);
+    font: var(--font-primary);
+    color: var(--swatch-text);
+    margin-left: 10px;
+    /* text-indent: 10px; */
+}
+
+#task-col-header {
+    margin-left: 10px;
+}
+
+.due-date-col {
+    background-color: var(--swatch-primary);
+    font: var(--font-primary);
+    color: var(--swatch-text);
+    margin-left: 10px;
+}
+
+#date-col-header {
+    margin-left: 10px;
+}
+
+.status-col {
+    background-color: var(--swatch-primary);
+    font: var(--font-primary);
+    color: var(--swatch-text);
+    text-indent: 10px;
+}
+
+#status-col-header {
+    text-indent: 10px;
+}
+
+.task-col:hover {
+    background-color: #7e8084;
+}
+
+.due-date-col:hover {
+    background-color: #7e8084;
+}
+
+.status-col:hover {
+    background-color: #7e8084;
+}
+
+.list-item-control {
+    font-size: 24px;
+}
+
+.list-item-control:hover {
+    background-color: #7e8084;
+}
+
+.list-control {
+    font-size: 15pt;
+}
